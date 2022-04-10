@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<pr_cr_crud.db_context.Productdtl>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+    <tr>
+        <th> PrdctNo</th>
+        <th> PrdctName</th>
+        <th>MRP</th>
+        <th>Discount</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+        <td>@item.PrdctNo</td>
+        <td>@item.ProdctName</td>
+        <td>@item.Mrp</td>
+        <td>@item.Discount</td>
+
+        <td><a href="@Url.Action("Delete", "Home", new {Id=item.PrdctNo})" class="btn btn-info">Delete</a></td>
+        </tr>
+    }
+
+</table>
